@@ -1,0 +1,1 @@
+Essa aplicação deve ser usada junto com um cliente rest para que possa fazer uso dos recurso da API.
