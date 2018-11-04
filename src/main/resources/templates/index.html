@@ -1,0 +1,73 @@
+
+<html>
+ <head>
+  <script src="revisao.js">  </script>
+  <script src="revisao3.js"></script> 
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.0.min.js"></script>
+<script>
+function acionar(){
+	var resposta = fetch('http://localhost:8080/produtos')
+	.then(response => response.json())
+
+	var resultado = document.getElementById('resultado');
+        resultado.innerHTML = resposta;
+        console.log(resposta.catch);
+}
+
+function gravar(){
+fetch('http://localhost:8080/produtos', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'}, 
+    body: {'nome': 'arroz', 'preco': 25},
+})
+.then(response => response.json())
+}
+</script>
+
+
+
+
+ </head>
+
+    <body>
+        
+            <label> Contato: </label> <input type="text" >
+            <input type="button" value="+" onclick="novoContato();"/>
+            <input type="button" value="salvar dados" onclick="salvarDados()" />
+            <input type="button" value="fazer GET" onclick="acionar()" />
+            <input type="button" value="fazer POST" onclick="gravar()" />
+<form name="formContatos">
+        <div id="listaContatos">
+       
+            
+
+        </div>
+
+</form>       
+
+   <div id="resultado">
+      
+
+   </div>
+
+   <script src="revisao2.js"> </script>
+    
+	<script>
+
+var rootURL = "http://localhost:8080/produtos";
+  
+function findAll(callback) {
+ $.ajax({
+  type : 'GET',
+  url : rootURL,
+  dataType : "json", 
+  success : callback
+ });
+}
+
+</script>
+
+	</body>
+    
+
+</html>
